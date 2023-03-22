@@ -1,0 +1,15 @@
+<% if @flag==1 %>
+<h1>Posts of <%=@user.username.capitalize! %></h1><br><br>
+<% else %>
+<h1>Public posts</h1>
+<% end %>
+<div>
+<% @post.each_with_index do |p,count| %>
+<% user = User.find_by(:id=>p.user_id)%>
+<div>Post <%=count+1 %>:- <%= p.post_name %><div><br>
+<div>Owner:- <%= user.username%></div>
+<div>About the post:- <%= p.post_description %></div><br>
+<div><%= link_to 'view the post',"/posts/#{p.id}" %>
+<br><br>    
+<% end %>
+</div>

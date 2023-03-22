@@ -1,0 +1,22 @@
+<h5>Current logged in user is <%= @user.username.capitalize %></h5>
+<br><br>
+Post Name: <%= @post.post_name%>
+<div>
+<div>Description:<%= @post.post_description%></div><br>
+<h2>Comments:-</h2>
+
+<% #unless @post_comment.nil? %>
+    <div><% @post_comments.each_with_index do |comment,index|%>
+   <div> Comment <%=index+1%><br>username: <%= comment.user_name%><br>
+       commented: <%= comment.description%><br><br></div>
+        <% end %>
+    </div>
+<% #end %>
+<div> <h4>Add a comment:-</h4>
+<%= form_with(model: @comment, local: true) do |f|%>
+<%= f.label "Description"%><br>
+<%= f.text_area :description%><br>
+<%= f.submit "Add Comment"%>
+<%end%>
+</div>
+</div>

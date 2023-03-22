@@ -1,0 +1,19 @@
+<h1>Signup Page</h1>
+<br><br><br>
+<div>
+<%= form_with(model: @user, local: true) do |form| %>
+ <%= form.label "Username: " %>
+  <%= form.text_field :username %><br><br>
+  <%= form.label "Password: " %>
+  <%= form.text_field :password %><br><br>
+  <%= form.submit "Signup" %>
+  <% end %>
+<p>
+ <div> <% if @user.present? && @user.errors.any? %>
+    <% @user.errors.full_messages.each do|message| %>
+   <h2><%= message %></h2> <br> 
+    <% end %>
+    <% end %>
+    </div>  
+</p>
+</div>

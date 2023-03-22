@@ -1,0 +1,10 @@
+<h1>Enter a comment</h1>
+<div>
+    <%= form with(model:@comment, local: true) do |f| %>
+    <%= f.label "username" %>
+    <%= f.text_field :user_name %><br><br>
+    <%= f.label "enter your comment below"%>
+    <%= f.text_area :description %>
+    <%= f.submit "Create comment" %>
+    <% end %>
+</div>

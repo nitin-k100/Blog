@@ -1,0 +1,6 @@
+<h1> Welcome <%= @user.username %></h1><br>
+<button type="submit"><%= link_to "New post",new_post_path %></button>
+&nbsp&nbsp&nbsp
+<button type="submit"><%= link_to "View public posts","/posts/" %></button>
+<button type="submit"><%= link_to 'View my posts',"/posts/?id=#{@user.id}" %></button>
+<button type="submit"><%= link_to "Log out", logout_path %></button>
